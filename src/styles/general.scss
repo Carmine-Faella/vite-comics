@@ -1,0 +1,16 @@
+@use './partials/variables' as *;
+@use './partials/mixins.scss' as *;
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.cnt-choises{
+    background-color: $color-secondary;
+}
+
+a{
+    text-decoration: none;
+}
