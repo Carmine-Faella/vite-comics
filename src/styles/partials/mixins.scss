@@ -2,3 +2,8 @@
     margin: auto;
     max-width: 992px;
 }
+
+@mixin d-flex-space-between{
+    display: flex;
+    align-items: center;
+}

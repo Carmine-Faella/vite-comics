@@ -66,9 +66,8 @@ export default{
 
 nav{
     height: 10vh;
-    display: flex;
     justify-content: space-between;
-    align-items: center;
+    @include d-flex-space-between;
     @include container;
     
 
@@ -76,8 +75,12 @@ nav{
         display: flex;
 
         li{
-            padding: 1rem;
+            padding: 1.5rem 0.8rem;
             font-size: 0.8rem;
+
+            &:hover{
+                border-bottom: 5px solid $color-secondary;
+            }
 
             a{
                 color: $color-primary;;

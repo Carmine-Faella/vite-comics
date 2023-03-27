@@ -81,8 +81,7 @@ export default{
   @include container;
 
   .image-wrap{
-    display: flex;
-    align-items: center;
+    @include d-flex-space-between;
 
       a{
         color: $color-font;
