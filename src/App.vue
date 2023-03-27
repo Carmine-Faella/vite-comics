@@ -47,7 +47,7 @@ export default{
     <TheHeader></TheHeader>
   </header>
   <main>
-    <div>Content goes here</div>
+    <div class="cnt-main">Content goes here</div>
     <section class="cnt-choises">
       <div class="item-icon">
         <div v-for="item in choises" class="image-wrap">
@@ -68,10 +68,16 @@ export default{
 @use './styles/partials/mixins.scss' as *;
 @use './styles/partials/variables.scss' as *;
 
+.cnt-main{
+  padding: 2rem;
+  color: $color-font;
+  @include container;
+}
+
 .item-icon{
   display: flex;
   justify-content: center;
-  padding: 4rem 0;
+  padding: 2.2rem 0;
   @include container;
 
   .image-wrap{

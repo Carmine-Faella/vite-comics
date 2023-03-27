@@ -65,7 +65,7 @@ export default{
 @use '../styles/partials/mixins' as *;
 
 nav{
-    height: 15vh;
+    height: 10vh;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -78,7 +78,6 @@ nav{
         li{
             padding: 1rem;
             font-size: 0.8rem;
-            list-style:none;
 
             a{
                 color: $color-primary;;

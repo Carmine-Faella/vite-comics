@@ -7,10 +7,19 @@
     box-sizing: border-box;
 }
 
+main{
+    height: 30vh;
+    background-color: $color-primary;
+}
+
 .cnt-choises{
     background-color: $color-secondary;
 }
 
 a{
     text-decoration: none;
+}
+
+li{
+    list-style:none;
 }
