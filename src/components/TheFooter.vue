@@ -45,8 +45,14 @@ export default{
                 }
             ],
         DC:['Term of Use','Privacy Policy (New)','Ad Choises','Advertising','Jobs','Subscriptions','Talent Workshops','CPSC Certificates','Ratings','Shop Help','Contact Us'],
-        Sites:['DC','MAD Magazine','DC Kids', 'DC Universe', 'DC Power Visa']
+        Sites:['DC','MAD Magazine','DC Kids', 'DC Universe', 'DC Power Visa'],
+        iconImage:['footer-facebook.png','footer-periscope.png','footer-pinterest.png','footer-twitter.png','footer-youtube.png']
         }
+    },
+    methods:{
+      getImagePath: function(img){
+        return new URL(`../assets/${img}`, import.meta.url).href;
+      }
     }
 }
 </script>
@@ -91,6 +97,12 @@ export default{
     <div class="foot-btn">
         <div class="foot-bottom">
             <button>Sign Up Now!</button>
+            <div class="d-flex">
+                <span>FOLLOW US</span>
+                <ul>
+                    <li v-for="imageIcon in iconImage"><a href="#"><img :src="getImagePath(imageIcon)" alt="Immmagine"></a></li>
+                </ul>
+            </div>
         </div>
     </div>
   
@@ -102,6 +114,7 @@ export default{
 
 .d-flex{
     display: flex;
+    align-items: center;
 }
 
 footer{
@@ -133,11 +146,22 @@ footer{
 
 .foot-btn{
     background-color: $color-primary;
-
     .foot-bottom{
     height: 10vh;
     padding: 1rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     @include container;
+
+    span{
+        color: $color-secondary;
+        padding-right: 1rem;
+    }
+
+    ul{
+        display: flex;
+    }
 
     button{
         color: $color-font;
