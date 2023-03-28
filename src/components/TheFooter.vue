@@ -2,53 +2,12 @@
 export default{
     data(){
         return{
-            option: [
-                {
-                    title:'CHARACTERS',
-                    href:'#CHARACTERS'
-                },
-                {
-                    title:'COMICS',
-                    href:'#COMICS'
-                },
-                {
-                    title:'MOVIES',
-                    href:'#MOVIES'
-                },
-                {
-                    title:'TV',
-                    href:'#TV'
-                },
-                {
-                    title:'GAMES',
-                    href:'#GAMES'
-                },
-                {
-                    title:'COLLECTIBLES',
-                    href:'#COLLECTIBLES'
-                },
-                {
-                    title:'VIDEOS',
-                    href:'#VIDEOS'
-                },
-                {
-                    title:'FANS',
-                    href:'#FANS'
-                },
-                {
-                    title:'NEWS',
-                    href:'#NEWS'
-                },
-                {
-                    title:'SHOP',
-                    href:'#SHOP'
-                }
-            ],
-        DC:['Term of Use','Privacy Policy (New)','Ad Choises','Advertising','Jobs','Subscriptions','Talent Workshops','CPSC Certificates','Ratings','Shop Help','Contact Us'],
-        Sites:['DC','MAD Magazine','DC Kids', 'DC Universe', 'DC Power Visa'],
-        iconImage:['footer-facebook.png','footer-periscope.png','footer-pinterest.png','footer-twitter.png','footer-youtube.png']
+            DC:['Term of Use','Privacy Policy (New)','Ad Choises','Advertising','Jobs','Subscriptions','Talent Workshops','CPSC Certificates','Ratings','Shop Help','Contact Us'],
+            Sites:['DC','MAD Magazine','DC Kids', 'DC Universe', 'DC Power Visa'],
+            iconImage:['footer-facebook.png','footer-periscope.png','footer-pinterest.png','footer-twitter.png','footer-youtube.png']
         }
     },
+    props:['links'],
     methods:{
       getImagePath: function(img){
         return new URL(`../assets/${img}`, import.meta.url).href;
@@ -59,12 +18,12 @@ export default{
 
 <template>
     <footer>
-        <div class="foot-bar d-flex">
+        <div class="foot-bar">
             <div>
             <div>
                 <h3>DC COMICS</h3>
                 <ul>
-                    <li v-for="item in option"><a :href="item.href">{{item.title.toLowerCase()}}</a></li>
+                    <li v-for="item in links"><a :href="item.href">{{item.title}}</a></li>
                 </ul>
             </div>
             <div>
@@ -75,32 +34,31 @@ export default{
                 </ul>
             </div>
             </div>
-            <div class="d-flex">
+            <div>
                 <div>
                     <h3>DC</h3>
                     <ul>
-                        <li v-for="list in DC"><a href="#">{{list}}</a></li>
+                        <li v-for="list,index in DC" :key="index"><a href="#">{{list}}</a></li>
                     </ul>
                 </div>
                 <div>
                     <h3>SITES</h3>
                     <ul>
-                        <li v-for="listSites in Sites"><a href="#">{{ listSites }}</a></li>
+                        <li v-for="listSites,index in Sites" :key="index"><a href="#">{{ listSites }}</a></li>
                     </ul>
                 </div>
             </div>
             <div class="logo-footer">
-                <img src="../assets/dc-logo-bg.png" alt="Logo Footer">
             </div>
         </div>
     </footer>
     <div class="foot-btn">
         <div class="foot-bottom">
             <button>Sign Up Now!</button>
-            <div class="d-flex">
+            <div class="follow">
                 <span>FOLLOW US</span>
                 <ul>
-                    <li v-for="imageIcon in iconImage"><a href="#"><img :src="getImagePath(imageIcon)" alt="Immmagine"></a></li>
+                    <li v-for="imageIcon,index in iconImage" :key="index"><a href="#"><img :src="getImagePath(imageIcon)" alt="Immmagine"></a></li>
                 </ul>
             </div>
         </div>
@@ -112,15 +70,14 @@ export default{
 @use '../styles/partials/variables' as *;
 @use '../styles/partials/mixins' as *;
 
-.d-flex{
-    display: flex;
-    align-items: center;
+.follow{
+    @include d-flex-space-between;
 }
 
 footer{
     background-image: url('../assets/footer-bg.jpg');
     color: $color-font;
-    height: 50vh;
+    padding: 2rem 0;
 
     h3{
         padding: 0.7rem 0;
@@ -137,18 +94,12 @@ footer{
 .foot-bar{
     display: flex;
     @include container;
-
-        img{
-            height: 50vh;
-            padding-left: 10rem;
-        }
 }
 
 .foot-btn{
     background-color: $color-primary;
+    padding: 1.5rem 0;
     .foot-bottom{
-    height: 10vh;
-    padding: 1rem 0;
     @include d-flex-space-between;
     justify-content: space-between;
     @include container;
@@ -162,6 +113,10 @@ footer{
         display: flex;
     }
 
+    li{
+        padding: 0.5rem 0;
+    }
+
     button{
         color: $color-font;
         background: none;
@@ -170,7 +125,5 @@ footer{
     }
     }
 }
-
-
 
 </style>

@@ -2,50 +2,10 @@
 export default{
     data(){
         return{
-            option: [
-                {
-                    title:'CHARACTERS',
-                    href:'#CHARACTERS'
-                },
-                {
-                    title:'COMICS',
-                    href:'#COMICS'
-                },
-                {
-                    title:'MOVIES',
-                    href:'#MOVIES'
-                },
-                {
-                    title:'TV',
-                    href:'#TV'
-                },
-                {
-                    title:'GAMES',
-                    href:'#GAMES'
-                },
-                {
-                    title:'COLLECTIBLES',
-                    href:'#COLLECTIBLES'
-                },
-                {
-                    title:'VIDEOS',
-                    href:'#VIDEOS'
-                },
-                {
-                    title:'FANS',
-                    href:'#FANS'
-                },
-                {
-                    title:'NEWS',
-                    href:'#NEWS'
-                },
-                {
-                    title:'SHOP',
-                    href:'#SHOP'
-                }
-            ],
+            
         }
-    }
+    },
+    props:['links']
 }
 </script>
 
@@ -55,7 +15,7 @@ export default{
         <img src="../assets/dc-logo.png" alt="logo Dc">
     </div>
     <ul class="list-nav">
-        <li v-for="list in option"><a :href="list.href">{{list.title}}</a></li>
+        <li v-for="list,index in links"><a :href="list.href" :key="index">{{list.title.toUpperCase()}}</a></li>
     </ul>
   </nav>
 </template>
