@@ -151,8 +151,12 @@ export default{
     <TheHeader :links="option"></TheHeader>
   </header>
   <main>
+    <div class="jumbotron">
+    </div>
     <div class="box-cnt">
+      <span class="title-cards">CURRENT SERIES</span>
       <CardList :card="cards"></CardList>
+      <button>LOAD MORE</button>
     </div>
     <section class="cnt-choises">
       <div class="item-icon">
@@ -179,7 +183,28 @@ export default{
 }
 
 .box-cnt{
-  padding: 2rem 0;
+  @include container;
+  padding: 0.5rem 0 1rem 0;
+  position: relative;
+  text-align: center;
+  .title-cards{
+      position: absolute;
+      top: -20px;
+      left: 40px;
+      background-color: $color-secondary;
+      display: inline-block;
+      padding: 0.7rem;
+      font-weight: bolder;
+      color: $color-font;
+    }
+  button{
+    background-color: $color-secondary;
+    border:none;
+    padding: 0.5rem 2rem;
+    color: $color-font;
+    font-weight: bold;
+    margin: 2rem 0;
+  }
 }
 
 .item-icon{
@@ -210,6 +235,12 @@ export default{
     }
   }
 
+}
+
+.jumbotron{
+  height: 250px;
+  background-image: url('jumbotron.jpg');
+  background-size: cover;
 }
 </style>
 
