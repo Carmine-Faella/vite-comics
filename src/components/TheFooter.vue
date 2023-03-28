@@ -88,6 +88,10 @@ footer{
         opacity: 0.5;
         padding-right: 0.8rem;
         display: block;
+
+        &:hover{
+            color: $color-secondary;
+        }
     }
 }
 

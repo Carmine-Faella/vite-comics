@@ -29,6 +29,10 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+
+            &:hover{
+                transform: scale(1.5);
+            }
         }
 
         h3{
