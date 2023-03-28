@@ -76,11 +76,11 @@ export default{
 
 footer{
     background-image: url('../assets/footer-bg.jpg');
+    background-size: cover;
     color: $color-font;
-    padding: 2rem 0;
 
     h3{
-        padding: 0.7rem 0;
+        padding: 1.5rem 0;
     }
 
     a{
@@ -94,6 +94,17 @@ footer{
 .foot-bar{
     display: flex;
     @include container;
+
+    ul{
+    padding: 0 1rem 1rem 0;
+    }
+    .logo-footer{
+        background-image: url('../assets/dc-logo-bg.png');
+        background-size: cover;
+        background-position: center;
+        margin-left: 3rem;
+        width:60%;
+    }
 }
 
 .foot-btn{
@@ -104,17 +115,13 @@ footer{
     justify-content: space-between;
     @include container;
 
-    span{
-        color: $color-secondary;
-        padding-right: 1rem;
-    }
-
     ul{
         display: flex;
     }
 
-    li{
-        padding: 0.5rem 0;
+    span{
+        color: $color-secondary;
+        padding-right: 2rem;
     }
 
     button{
@@ -125,5 +132,6 @@ footer{
     }
     }
 }
+
 
 </style>
