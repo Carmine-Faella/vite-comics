@@ -94,7 +94,7 @@ export default{
     </div>
     <div class="box-cnt">
       <span class="title-cards">CURRENT SERIES</span>
-      <CardList :card="cards"></CardList>
+      <CardList></CardList>
       <button>LOAD MORE</button>
     </div>
     <section class="cnt-choises">
